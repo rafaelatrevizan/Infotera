@@ -5,6 +5,7 @@ require 'site_prism'
 require 'capybara'
 require 'capybara/dsl'
 require 'pry'
+require 'cpf_faker'
 
 World(PageObject::PageFactory)
 

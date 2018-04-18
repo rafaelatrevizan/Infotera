@@ -9,7 +9,7 @@ Para verificar as informações
 
 @menu
 Cenario: Validar Menus
-Dados que esteja na Home do Portal
+Dado que esteja na Home do Portal
 Então deverá ser exibido os Menus
 | Menu              |
 | Unidades          |
