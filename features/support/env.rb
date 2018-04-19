@@ -6,6 +6,7 @@ require 'capybara'
 require 'capybara/dsl'
 require 'pry'
 require 'cpf_faker'
+require 'fileutils'
 
 World(PageObject::PageFactory)
 

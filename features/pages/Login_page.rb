@@ -13,8 +13,8 @@ class LoginPage < SitePrism::Page
     end
 
     def fillLogin
-        usuario.set('rafaela')
-        senha.set('@trevizan201804')
+        usuario.set('homo')
+        senha.set('homolog')
     end
 
     def fillPassword

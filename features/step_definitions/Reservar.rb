@@ -30,4 +30,11 @@ end
 Então("deverá ser preenchido todas as informações necessárias e realizar a reserva") do
  $reservarInfo.fillFormAdult1
  $reservarInfo.fillFormAdult2
+ $reservarInfo.fillTextArea
+ $reservarInfo.dadosCliente
+ $reservarInfo.finalizar_reserva.click
+ $reservarInfo.check_reservation
+ self.set_massa("C:\Users\Laercio\Documents\Infotera\Reservas", 4, "ID", $reservarInfo.id_reserva.text)
+ #  $reservarInfo.verifyReservation
 end
+
