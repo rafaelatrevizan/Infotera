@@ -10,8 +10,8 @@ Contexto: Usuário acessa o Portal
 Dado que esteja na Home do Portal
 Quando clicar no menu Buscar
 
-@buscar
-Cenario: Fazer uma busca
+@confirmar 
+Cenario: Fazer uma confirmação
 Quando pesquisar a reserva desejada
 Então a reserva deverá ser confirmada
 

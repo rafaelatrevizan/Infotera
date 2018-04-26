@@ -23,17 +23,13 @@ E as abas com as opções de serviço
 | Pacotes               |
 | Circuitos             |
 
-@fazerReserva
+@fazerReserva 
 Cenario: Fazer uma reserva
 Quando preencher os campos Cidade ou hotel de destino, data de partida e retorno
 E ser exibido todos os hotéis compatíveis 
 Então deverá selecionar o hotel
 E deverá ser preenchido todas as informações necessárias e realizar a reserva
 
-@confirmar
-Cenario: Confirmar uma reserva
-Dado que esteja na tela de buscar as reservas
-Quando selecionar a reserva desejada
-Então confirmar
+
 
 
