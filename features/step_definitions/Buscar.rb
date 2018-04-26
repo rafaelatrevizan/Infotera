@@ -1,8 +1,13 @@
-Dado("que esteja na tela de buscar as reservas") do
-end
-
-Quando("selecionar a reserva desejada") do
-end
-
-Então("confirmar") do
-end
+Quando("clicar no menu Buscar") do
+    $buscarInfo = Buscar.new
+    $buscarInfo.menuBuscar.click
+  end
+  
+  Quando("pesquisar a reserva desejada") do
+    $buscarInfo.changeIframe
+    $buscarInfo.pesquisarReserva
+  end
+  
+  Então("a reserva deverá ser confirmada") do
+    $buscarInfo.confirmar
+  end
