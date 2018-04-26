@@ -3,17 +3,17 @@ class Reservar < SitePrism::Page
     element :pesquisarHotel, :xpath, '//input[contains(@id, "frmMotorHotel:idDestinoHotel_input")]'
     element :hotelEscolhido, :xpath, '//tr[contains(@class, "ui-autocomplete-item")]/td'
     element :resulthotel, :xpath, '//div[@class = "Fs22"]'
-    element :pesquisaHotel, :xpath, '//input[@id = "frmMotorHotel:j_idt512"]'
-    element :fazerReserva, :xpath, '//button[@id = "pnlPesquisa:0:pnlHotelPesquisa:0:j_idt2008"]'
-    element :adult1_name, :xpath, '//input[@id = "frmNomeEdit:j_idt2027:0:j_idt2028:0:j_idt2033:j_idt2034:0:idNome"]'
-    element :adult1_last_name, :xpath, '//input[@id = "frmNomeEdit:j_idt2027:0:j_idt2028:0:j_idt2033:j_idt2034:0:idSobrenome"]'
-    element :adult1_num_doc, :xpath, '//input[@id = "frmNomeEdit:j_idt2027:0:j_idt2028:0:j_idt2033:j_idt2034:0:idNrDocumento"]'
-    element :adult1_data_nasc, :xpath, '//input[@id = "frmNomeEdit:j_idt2027:0:j_idt2028:0:j_idt2033:j_idt2034:0:idDtNascimento"]'
-    element :adult2_name, :xpath, '   //input[@id = "frmNomeEdit:j_idt2027:0:j_idt2028:0:j_idt2033:j_idt2034:1:idNome"]'
-    element :adult2_last_name, :xpath, '//input[@id = "frmNomeEdit:j_idt2027:0:j_idt2028:0:j_idt2033:j_idt2034:1:idSobrenome"]'
-    element :adult2_num_doc, :xpath, '//input[@id = "frmNomeEdit:j_idt2027:0:j_idt2028:0:j_idt2033:j_idt2034:1:idNrDocumento"]'
-    element :adult2_data_nasc, :xpath, '//input[@id = "frmNomeEdit:j_idt2027:0:j_idt2028:0:j_idt2033:j_idt2034:1:idDtNascimento"]' 
-    element :textarea, :xpath, '//textarea[@id = "frmNomeEdit:j_idt2027:0:j_idt2028:0:idDsObservacao"]'
+    # element :pesquisaHotel, :xpath, '//input[@id = "frmMotorHotel:j_idt512"]'
+    # element :fazerReserva, :xpath, '//button[@id = "pnlPesquisa:0:pnlHotelPesquisa:0:j_idt2008"]'
+    element :adult1_name, :xpath, '//input[@id = "frmNomeEdit:hotel:0:quarto:0:pnlNome:nome:0:idNome"]'
+    element :adult1_last_name, :xpath, '//input[@id = "frmNomeEdit:hotel:0:quarto:0:pnlNome:nome:0:idSobrenome"]'
+    element :adult1_num_doc, :xpath, '//input[@id = "frmNomeEdit:hotel:0:quarto:0:pnlNome:nome:0:idNrDocumento"]'
+    element :adult1_data_nasc, :xpath, '//input[@id = "frmNomeEdit:hotel:0:quarto:0:pnlNome:nome:0:idDtNascimento"]'
+    element :adult2_name, :xpath, '   //input[@id = "frmNomeEdit:hotel:0:quarto:0:pnlNome:nome:1:idNome"]'
+    element :adult2_last_name, :xpath, '//input[@id = "frmNomeEdit:hotel:0:quarto:0:pnlNome:nome:1:idSobrenome"]'
+    element :adult2_num_doc, :xpath, '//input[@id = "frmNomeEdit:hotel:0:quarto:0:pnlNome:nome:1:idNrDocumento"]'
+    element :adult2_data_nasc, :xpath, '//input[@id = "frmNomeEdit:hotel:0:quarto:0:pnlNome:nome:1:idDtNascimento"]' 
+    element :textarea, :xpath, '//textarea[@id = "frmNomeEdit:hotel:0:quarto:0:idDsObservacao"]'
     element :cliente_name, :xpath, '//input[@id = "frmNomeEdit:idNmContato"]'
     element :cliente_email, :xpath, '//input[@id = "frmNomeEdit:idEmailContato"]'
     element :cliente_tel, :xpath, '//input[@id = "frmNomeEdit:idTelefoneContato"]'
@@ -91,9 +91,15 @@ class Reservar < SitePrism::Page
     end
 
     def verifyHotel
+        lala = all(:xpath, '//input[contains(@id, "frmMotorHotel")]')
+        pesquisaHotel = lala[1]
         resulthotel.text.include?(pesquisaHotel.text)
     end
 
+    def fazerReserva
+        botao = all(:xpath, '//button[contains(@id, "pnlPesquisa:0:pnlHotelPesquisa:0:")]')
+        botao[0].click
+    end
     
 
     def fillFormAdult1
@@ -149,6 +155,12 @@ class Reservar < SitePrism::Page
         cliente_name.set(@nomeCliente)
         cliente_email.set('teste@homolog.com')
         cliente_tel.set('11111111111')
+    end
+
+    def finalizar_reserva
+        binding.pry
+        bla = all(:xpath, '//button[contains(@id, "frmNomeEdit")]')
+        bla[1].click
     end
 
     def check_reservation
